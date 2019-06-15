@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-6 mt-5 mb-5 mx-auto">
+    <div class="card">
+      <div class="card-body">
+          <h1 style="font-weight: bolder;font-style:oblique; text-shadow: 0 2px 2px;">USER REGISTER</h1>
+          <form>
+              <div class="form-group">
+                  <label for="email">Email/Username</label>
+                  <input type="text" name="email" id="email" class="form-control" placeholder="Type your Email/Username">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Type your Name">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Type your Password">
+                </div>
+                <div class="form-group">
+                  <label for="repassword">Password Confirm</label>
+                  <input type="password" name="repassword" id="repassword" class="form-control" placeholder="Re-type your Password">
+                </div>
+                <div class="form-group">
+                  <label for="role">Role</label>
+                  <select name="role" id="role" class="form-control">
+                    <option value=""> -- Role Select -- </option>
+                    <option value="ADMINISTRATOR">ADMINISTRATOR</option>
+                    <option value="OBSERVER">OBSERVER</option>
+                    <option value="USER">USER</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <select name="country" class="form-control">
+                    <option value=""> --Select a Country-- </option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="United States">United States</option>
+                    <option value="France">France</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Iceland">Iceland</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <input type="text" name="description" class="form-control" placeholder="Write a short Description">
+                </div>
+                <input type="submit" value="Register" class="btn btn-warning btn-block btn-lg">
+                <input type="reset" value="Clear" class="btn btn-outline-warning btn-block ">
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
