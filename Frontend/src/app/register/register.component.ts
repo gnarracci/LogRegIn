@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  registerForm:FormGroup = new FormGroup({
+    username:new FormControl(null,[Validators.email,Validators.required]),
+    name:new FormControl(null,Validators.required),
+    password:new FormControl(null,Validators.required),
+    repassword:new FormControl(null,Validators.required),
+    role:new FormControl(null,Validators.required),
+    country:new FormControl(null,Validators.required),
+    description:new FormControl(null,Validators.required)
+  })
+  constructor(private _router:Router) { }
 
   ngOnInit() {
+  }
+
+  moveToLogin() {
+    this._router.navigate(['/login']);
+  }
+
+  register() {
+    if(!this.registerForm.valid || (this.registerForm.controls.password.value != this.registerForm.controls.repassword.value)) {
+      console.log('Invalid Form'); return;
+    }
+    console.log(JSON.stringify(this.registerForm.value));
   }
 
 }
