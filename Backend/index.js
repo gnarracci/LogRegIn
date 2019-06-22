@@ -25,8 +25,7 @@ app.use(cors({
 }));
 
 //Routes
-app.use('/user', userRouter);
-app.use('/', indexRouter);
+app.use('/users', userRouter);
 
 //Starting the server
 
