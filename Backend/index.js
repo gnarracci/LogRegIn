@@ -5,6 +5,9 @@ const CreateError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
+const passport = require('passport');
+const session = require('express-session');
+const passconfig = require('./passport-config');
 
 const { mongoose } = require('./database');
 
@@ -23,6 +26,19 @@ app.use(cors({
     origin:['http://localhost:4200','http://127.0.0.1:4200'],
     credentials:true
 }));
+app.use(session({
+    name:'myname.id',
+    resave:false,
+    saveUninitialized:false,
+    secret: 'secret',
+    cookie:{
+        maxAge: 36000000,
+        httpOnly:false,
+        secure:false
+    }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Routes
 app.use('/users', userRouter);

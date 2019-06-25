@@ -1,5 +1,6 @@
 const userCtrl = {};
 const User = require('../models/users');
+const passport = require('passport');
 
 userCtrl.regUsers = async (req, res) => {
     const user = new User({
@@ -15,6 +16,17 @@ userCtrl.regUsers = async (req, res) => {
     res.json({
         'status': 'User saved!'
     });
+};
+
+userCtrl.logUsers = async (req, res, next) => {
+    passport.authenticate('local', function(err,user, info) {
+        if (err) { return res.status(501).json(err); }
+        if (!user) { return res.status(501).json(info); }
+        req.logIn(user, function(err) {
+            if (err) { return res.status(501).json(err); }
+            return res.status(201).json( { message:'Login Success!'});
+        });
+    })(req, res, next);
 };
 
 userCtrl.getUsers = async (req, res) => {
