@@ -23,4 +23,20 @@ export class UserService {
     });
   }
 
+  userhome() {
+    return this._http.get('http://127.0.0.1:4200/users/userhome', {
+      observe:'body',
+      withCredentials:true,
+      headers:new HttpHeaders().append('Content-Type','application/json')
+    });
+  }
+
+  logout() {
+    return this._http.get('http://127.0.0.1:4200/users/userhome', {
+      observe:'body',
+      withCredentials:true,
+      headers:new HttpHeaders().append('Content-Type','application/json')
+    });
+  }
+
 }

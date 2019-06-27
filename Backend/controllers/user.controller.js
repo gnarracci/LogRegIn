@@ -64,4 +64,22 @@ userCtrl.delUser = async (req, res) => {
     });
 };
 
+userCtrl.logOut = async (req, res, next) => {
+    req.logOut();
+    return res.status(200).json({ message: 'Logout Success!' });
+};
+
+userCtrl.notiMessage = (req, res) => {
+    return res.status(200).json(req.user);
+};
+
+userCtrl.isValidUser = (req, res, next) => {
+    res.json({
+        'status':'Aqui estoy!'
+    });
+
+    /*if(req.isAuthenticated()) next();
+    else return res.status(401).json( { message: 'Unauthorized Request'} );*/
+};
+
 module.exports = userCtrl;
