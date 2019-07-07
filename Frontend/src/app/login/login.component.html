@@ -6,14 +6,14 @@
         <form [formGroup]="loginForm">
           <div class="form-group">
             <label for="email">Email/Username</label>
-            <input type="email" formControlName="username" id="email" class="form-control" placeholder="Type your Email/Username">
+            <input type="email" formControlName="username" id="email" class="form-control" placeholder="Type your Email/Username" autofocus>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" formControlName="password" id="password" class="form-control" placeholder="Type your Password">
           </div>
           <input type="submit" value="SignIn" (click)="login()" class="btn btn-warning btn-block btn-lg">
-          <input type="button" value="SignUp" (click)="moveToRegister()" class="btn btn-outline-warning btn-block btn-lg">
+          <input type="button" value="Are you new?" (click)="moveToRegister()" class="btn btn-outline-warning btn-block btn-lg">
         </form>
       </div>
     </div>

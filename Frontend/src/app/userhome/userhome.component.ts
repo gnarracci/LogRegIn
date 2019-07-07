@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class UserhomeComponent implements OnInit {
 
-  constructor(private _user:UserService, private _router:Router) {}
+  constructor(private _user:UserService, private _router:Router) {
+    
+  }
 
   ngOnInit() {
   }

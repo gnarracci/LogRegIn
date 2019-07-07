@@ -2,6 +2,7 @@ const userCtrl = {};
 const User = require('../models/users');
 const passport = require('passport');
 
+// Users register
 userCtrl.regUsers = async (req, res) => {
     const user = new User({
         username:req.body.username,
@@ -18,7 +19,9 @@ userCtrl.regUsers = async (req, res) => {
     });
 };
 
-userCtrl.logUsers = async (req, res, next) => {
+
+// Users Login
+/*userCtrl.logUsers = async (req, res, next) => {
     passport.authenticate('local', function(err,user, info) {
         if (err) { return res.status(501).json(err); }
         if (!user) { return res.status(501).json(info); }
@@ -27,18 +30,25 @@ userCtrl.logUsers = async (req, res, next) => {
             return res.status(201).json( { message:'Login Success!'});
         });
     })(req, res, next);
+};*/
+
+userCtrl.logUsers = (req, res) => {
+    //console.log(req.body);
 };
 
+// Get Users
 userCtrl.getUsers = async (req, res) => {
     const users = await User.find();
     res.json(users);
 };
 
+// Find One User 
 userCtrl.getUser = async (req, res) => {
     const user = await User.findById(req.params.id);
     res.json(user);
 };
 
+// Edit User
 userCtrl.editUser = async (req, res) => {
     const { id } = req.params;
     const user = {
@@ -56,6 +66,7 @@ userCtrl.editUser = async (req, res) => {
     });
 };
 
+// Delete User
 userCtrl.delUser = async (req, res) => {
     const { id } = req.params;
     await User.findByIdAndRemove(id);
@@ -64,22 +75,10 @@ userCtrl.delUser = async (req, res) => {
     });
 };
 
-userCtrl.logOut = async (req, res, next) => {
-    req.logOut();
+// User Log Out
+/*userCtrl.logOut = async (req, res) => {
+    await req.logOut();
     return res.status(200).json({ message: 'Logout Success!' });
-};
-
-userCtrl.notiMessage = (req, res) => {
-    return res.status(200).json(req.user);
-};
-
-userCtrl.isValidUser = (req, res, next) => {
-    res.json({
-        'status':'Aqui estoy!'
-    });
-
-    /*if(req.isAuthenticated()) next();
-    else return res.status(401).json( { message: 'Unauthorized Request'} );*/
-};
+};*/
 
 module.exports = userCtrl;
