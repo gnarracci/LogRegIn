@@ -19,9 +19,8 @@ userCtrl.regUsers = async (req, res) => {
     });
 };
 
-
 // Users Login
-/*userCtrl.logUsers = async (req, res, next) => {
+userCtrl.logUsers = async (req, res, next) => {
     passport.authenticate('local', function(err,user, info) {
         if (err) { return res.status(501).json(err); }
         if (!user) { return res.status(501).json(info); }
@@ -30,11 +29,10 @@ userCtrl.regUsers = async (req, res) => {
             return res.status(201).json( { message:'Login Success!'});
         });
     })(req, res, next);
-};*/
-
-userCtrl.logUsers = (req, res) => {
-    //console.log(req.body);
 };
+
+// Logout User
+
 
 // Get Users
 userCtrl.getUsers = async (req, res) => {
@@ -74,11 +72,5 @@ userCtrl.delUser = async (req, res) => {
         'status': 'User Deleted!'
     });
 };
-
-// User Log Out
-/*userCtrl.logOut = async (req, res) => {
-    await req.logOut();
-    return res.status(200).json({ message: 'Logout Success!' });
-};*/
 
 module.exports = userCtrl;

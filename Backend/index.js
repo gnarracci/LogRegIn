@@ -35,6 +35,7 @@ app.use(session({
         secure:false
     }
 }));
+require('./passport-config');
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -9,8 +9,12 @@ import { UserhomeComponent } from './userhome/userhome.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
+
+// Services
+import { UserService } from './service/user.service';
+import { CrudService } from './service/crud.service';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, CrudService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

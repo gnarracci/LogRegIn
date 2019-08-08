@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../user.service';
+import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
+import { CrudService } from '../service/crud.service';
 
 @Component({
   selector: 'app-userhome',
@@ -9,11 +10,16 @@ import { Router } from '@angular/router';
 })
 export class UserhomeComponent implements OnInit {
 
-  constructor(private _user:UserService, private _router:Router) {
+  constructor(private _user:UserService, private _router:Router, private crud:CrudService) {
     
   }
 
   ngOnInit() {
+    this.getListUsers();
+  }
+
+  getListUsers() {
+    this.crud.getAllUsers().subscribe(users => console.log(users));
   }
 
   logout() {
